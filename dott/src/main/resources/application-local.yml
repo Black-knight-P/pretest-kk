@@ -1,0 +1,44 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=Legacy
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true
+  redis:
+    host: localhost
+    port: 6379
+
+logging:
+  level:
+    com: debug
+    org:
+      hibernate:
+        sql: debug
+
+org:
+  slf4j:
+    simpleLogger:
+      logFile: System.out
+
+dott:
+  security:
+    jwt:
+      secret: dott
+  encrypt:
+    key: dottdottdottdott
